@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+}
+
+.button {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 4;
+  border: none;
+  background: transparent;
+  padding: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 769px) {
+  .button {
+    top: 32px;
+    right: 32px;
+  }
+}

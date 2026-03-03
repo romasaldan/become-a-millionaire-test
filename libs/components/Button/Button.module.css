@@ -30,11 +30,10 @@
   background-color: var(--color-orange-120);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .button {
     height: 64px;
     min-width: 296px;
     border-radius: 12px;
   }
 }
-
