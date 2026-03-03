@@ -14,6 +14,10 @@
   position: relative;
 }
 
+.mobileToggle {
+  display: block;
+}
+
 .gameContent {
   position: relative;
   z-index: 1;
@@ -63,4 +67,66 @@
 .ladderContainer {
   flex: 1;
   overflow-y: auto;
+}
+
+@media (min-width: 769px) {
+  .page {
+    padding: 0;
+  }
+
+  .main {
+    max-width: 1440px;
+    min-height: 100vh;
+  }
+
+  .gameLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 376px;
+  }
+
+  .mobileToggle {
+    display: none;
+  }
+
+  .gameContent {
+    min-width: 0;
+    border-right: 1px solid var(--color-black-40);
+  }
+
+  .questionSection {
+    height: 100%;
+    padding-top: 133px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .questionText {
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: left;
+    font-size: 56px;
+    line-height: 1.16;
+  }
+
+  .optionsWrapper {
+    margin-top: auto;
+    padding: 0 80px 48px;
+  }
+
+  .ladderOverlay {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    transform: translateX(0);
+    transition: none;
+    justify-content: center;
+    padding: 0 24px;
+    background: var(--color-white-100);
+    z-index: 1;
+  }
+
+  .ladderContainer {
+    flex: 0 0 auto;
+    overflow-y: visible;
+  }
 }

@@ -38,12 +38,14 @@ export default function GamesPage(props: GamesPageProps) {
   return (
     <div className={styles.page}>
       <main className={`${styles.main} ${styles.gameLayout}`}>
-        <ToggleButton
-          isOpen={isLadderOpen}
-          onToggle={() => setIsLadderOpen((open) => !open)}
-          ariaLabelOpen="Hide question progress"
-          ariaLabelClosed="Show question progress"
-        />
+        <div className={styles.mobileToggle}>
+          <ToggleButton
+            isOpen={isLadderOpen}
+            onToggle={() => setIsLadderOpen((open) => !open)}
+            ariaLabelOpen="Hide question progress"
+            ariaLabelClosed="Show question progress"
+          />
+        </div>
         <div className={styles.gameContent}>
           <section
             className={styles.questionSection}

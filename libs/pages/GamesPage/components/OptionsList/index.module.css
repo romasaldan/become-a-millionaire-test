@@ -15,13 +15,14 @@
 @media (min-width: 769px) {
   .optionsList {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, auto));
+    grid-template-columns: repeat(2, 405px);
     justify-content: center;
-    column-gap: 32px;
+    column-gap: 0;
     row-gap: 12px;
   }
 
   .optionWrapper {
+    width: 405px;
     justify-content: center;
   }
 }
