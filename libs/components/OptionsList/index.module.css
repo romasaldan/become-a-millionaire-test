@@ -1,0 +1,28 @@
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.optionWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .optionsList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, auto));
+    justify-content: center;
+    column-gap: 32px;
+    row-gap: 12px;
+  }
+
+  .optionWrapper {
+    justify-content: center;
+  }
+}
+
