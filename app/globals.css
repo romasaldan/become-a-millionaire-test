@@ -16,7 +16,7 @@
 
   /* Typography tokens */
   --font-family-base:
-    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 
   --font-weight-regular: 400;
