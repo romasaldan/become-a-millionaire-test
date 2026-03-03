@@ -1,0 +1,64 @@
+{
+  "quiz": [
+    {
+      "complexityRange": { "min": 1, "max": 10 },
+      "reward": 100
+    },
+    {
+      "complexityRange": { "min": 5, "max": 20 },
+      "reward": 200
+    },
+    {
+      "complexityRange": { "min": 10, "max": 30 },
+      "reward": 300
+    },
+    {
+      "complexityRange": { "min": 20, "max": 40 },
+      "reward": 500
+    },
+    {
+      "complexityRange": { "min": 30, "max": 50 },
+      "reward": 1000
+    },
+    {
+      "complexityRange": { "min": 40, "max": 60 },
+      "reward": 2000
+    },
+    {
+      "complexityRange": { "min": 50, "max": 70 },
+      "reward": 4000
+    },
+    {
+      "complexityRange": { "min": 60, "max": 80 },
+      "reward": 8000
+    },
+    {
+      "complexityRange": { "min": 70, "max": 90 },
+      "reward": 16000
+    },
+    {
+      "complexityRange": { "min": 80, "max": 100 },
+      "reward": 32000
+    },
+    {
+      "complexityRange": { "min": 80, "max": 100 },
+      "reward": 64000
+    },
+    {
+      "complexityRange": { "min": 85, "max": 100 },
+      "reward": 125000
+    },
+    {
+      "complexityRange": { "min": 90, "max": 100 },
+      "reward": 250000
+    },
+    {
+      "complexityRange": { "min": 95, "max": 100 },
+      "reward": 500000
+    },
+    {
+      "complexityRange": { "min": 95, "max": 100 },
+      "reward": 1000000
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  height: 48px;
+  min-width: 288px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--color-orange-100);
+  color: var(--color-white-100);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.05s ease,
+    box-shadow 0.05s ease;
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:disabled) {
+    background-color: var(--color-orange-80);
+  }
+}
+
+.button:active:not(:disabled) {
+  background-color: var(--color-orange-120);
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    height: 64px;
+    min-width: 296px;
+    border-radius: 12px;
+  }
+}
+
