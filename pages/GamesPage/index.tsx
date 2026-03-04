@@ -24,7 +24,7 @@ export default function GamesPage(props: GamesPageProps) {
     selectedOptions,
     onOptionClick,
     currentQuestionIndex,
-  } = useGameEngine(questions);
+  } = useGameEngine(questions, rewards);
 
   return (
     <div className={styles.page}>

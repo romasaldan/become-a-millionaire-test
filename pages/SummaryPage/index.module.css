@@ -1,0 +1,49 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  background: var(--color-black-5);
+}
+
+.main {
+  width: 100%;
+  max-width: 400px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.illustration {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+@media (min-width: 769px) {
+  .page {
+    padding: 48px 64px;
+  }
+
+  .main {
+    max-width: 960px;
+  }
+
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+    gap: 64px;
+  }
+
+  .illustration {
+    width: 320px;
+    height: 320px;
+  }
+}

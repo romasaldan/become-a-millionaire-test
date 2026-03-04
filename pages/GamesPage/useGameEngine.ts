@@ -1,9 +1,11 @@
+import { useAppStore } from "@/shared/hooks/useAppStore";
 import type { Question } from "@/shared/types/game";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type QuestionState = "inProgress" | "incorrect" | "correct";
 
-export function useGameEngine(questions: Question[]) {
+export function useGameEngine(questions: Question[], rewards: number[]) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [questionState, setQuestionState] =
     useState<QuestionState>("inProgress");
@@ -12,6 +14,8 @@ export function useGameEngine(questions: Question[]) {
   const correctOptionsAmount = currentQuestion?.options.filter(
     (option) => option.isCorrect,
   ).length;
+  const { setUserReward, setGameInProgress } = useAppStore();
+  const router = useRouter();
 
   const onOptionClick = (optionId: number) => {
     if (
@@ -31,6 +35,12 @@ export function useGameEngine(questions: Question[]) {
       );
     } else {
       setQuestionState("incorrect");
+
+      if (currentQuestionIndex > 0) {
+        setUserReward(rewards[currentQuestionIndex - 1]);
+      }
+
+      setGameInProgress(false);
     }
 
     setSelectedOptions(newSelectedOptions);
@@ -46,11 +56,13 @@ export function useGameEngine(questions: Question[]) {
         setCurrentQuestionIndex((prev) => prev + 1);
         setQuestionState("inProgress");
         setSelectedOptions([]);
+      } else {
+        router.push("/summary");
       }
     }, 1000);
 
     return () => clearTimeout(timeout);
-  }, [questionState]);
+  }, [questionState, router]);
 
   return {
     currentQuestion,

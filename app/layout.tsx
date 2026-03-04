@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { StoreProvider } from "@/shared/context/StoreProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        {children}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );
