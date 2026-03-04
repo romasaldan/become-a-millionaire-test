@@ -52,16 +52,6 @@
   align-items: center;
 }
 
-.cta {
-  margin-top: 32px;
-  width: 100%;
-}
-
-.ctaLink {
-  display: block;
-  width: 100%;
-}
-
 @media (min-width: 769px) {
   .page {
     padding: 48px 64px;
@@ -94,14 +84,5 @@
 
   .subtitle {
     margin: 0;
-  }
-
-  .cta {
-    width: auto;
-  }
-
-  .ctaLink {
-    width: auto;
-    display: inline-block;
   }
 }
