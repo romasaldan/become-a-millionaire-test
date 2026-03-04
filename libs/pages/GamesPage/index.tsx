@@ -16,13 +16,8 @@ type GamesPageProps = {
 export default function GamesPage(props: GamesPageProps) {
   const { rewards, questions } = props;
   const { isOpen: isLadderOpen, toggle: toggleLadder } = useToggle(false);
-  const [currentQuestionIndex] = useState(7);
-  const currentQuestion = questions[currentQuestionIndex] ?? questions[0];
-  const currentOptions =
-    currentQuestion?.options.map((option) => ({
-      id: option.id,
-      text: option.text,
-    })) ?? [];
+  const [currentQuestionIndex] = useState(0);
+  const currentQuestion = questions[currentQuestionIndex];
 
   return (
     <div className={styles.page}>
@@ -45,7 +40,7 @@ export default function GamesPage(props: GamesPageProps) {
                 "Questions are not available right now."}
             </p>
             <div className={styles.optionsWrapper}>
-              <OptionsList options={currentOptions} />
+              <OptionsList options={currentQuestion?.options} />
             </div>
           </section>
         </div>

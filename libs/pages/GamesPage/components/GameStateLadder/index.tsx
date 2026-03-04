@@ -15,12 +15,12 @@ export const MAP_VALUE_TO_STATE: Record<string, QuestionLevelState> = {
 };
 
 export function GameStateLadder(props: GameStateLadderProps) {
-  const { rewards, currentQuestionIndex, ...rest } = props;
-  const displayRewards = [...rewards].reverse();
+  const { rewards, currentQuestionIndex } = props;
+  console.log(rewards, currentQuestionIndex);
 
   return (
-    <div className={styles.container} {...rest}>
-      {displayRewards.map((reward, questionIndex) => {
+    <div className={styles.container}>
+      {rewards.map((reward, questionIndex) => {
         const state =
           MAP_VALUE_TO_STATE[Math.sign(currentQuestionIndex - questionIndex)];
 
