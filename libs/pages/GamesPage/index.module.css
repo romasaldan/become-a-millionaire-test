@@ -38,6 +38,16 @@
   font-weight: var(--font-weight-semibold);
 }
 
+.selectionHint {
+  margin: 16px 0 0;
+  padding: 0 16px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-black-40);
+  font-weight: var(--font-weight-semibold);
+}
+
 .optionsWrapper {
   width: 100%;
   margin-top: 102px;
@@ -106,6 +116,12 @@
     text-align: left;
     font-size: 56px;
     line-height: 1.16;
+  }
+
+  .selectionHint {
+    padding: 0 80px;
+    text-align: left;
+    font-size: 18px;
   }
 
   .optionsWrapper {
