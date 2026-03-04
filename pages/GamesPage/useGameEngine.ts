@@ -1,4 +1,4 @@
-import type { Question } from "@/libs/types/game";
+import type { Question } from "@/shared/types/game";
 import { useEffect, useState } from "react";
 
 type QuestionState = "inProgress" | "incorrect" | "correct";

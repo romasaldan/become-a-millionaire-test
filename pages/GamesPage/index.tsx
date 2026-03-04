@@ -2,9 +2,9 @@
 
 import { GameStateLadder } from "./components/GameStateLadder";
 import { OptionsList } from "./components/OptionsList";
-import { ToggleButton } from "../../components/ToggleButton";
-import { useToggle } from "../../hooks/useToggle";
-import type { Question } from "@/libs/types/game";
+import { ToggleButton } from "../../shared/components/ToggleButton";
+import { useToggle } from "../../shared/hooks/useToggle";
+import type { Question } from "@/shared/types/game";
 import styles from "./index.module.css";
 import { useGameEngine } from "./useGameEngine";
 import classNames from "classnames";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/libs/components/Button";
+import { Button } from "@/shared/components/Button";
 import styles from "./error.module.css";
 
 type AppErrorPageProps = {

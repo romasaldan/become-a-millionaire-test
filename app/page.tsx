@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
-import { Button } from "../libs/components/Button";
+import { Button } from "../shared/components/Button";
 
 export default function Home() {
   return (

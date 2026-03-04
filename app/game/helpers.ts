@@ -3,7 +3,7 @@ import type {
   Question,
   QuestionsConfig,
   ComplexityRange,
-} from "@/libs/types/game";
+} from "@/shared/types/game";
 
 export type PreparedGameData = {
   rewards: number[];

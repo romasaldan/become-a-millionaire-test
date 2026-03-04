@@ -16,7 +16,6 @@ export const MAP_VALUE_TO_STATE: Record<string, QuestionLevelState> = {
 
 export function GameStateLadder(props: GameStateLadderProps) {
   const { rewards, currentQuestionIndex } = props;
-  console.log(rewards, currentQuestionIndex);
 
   return (
     <div className={styles.container}>

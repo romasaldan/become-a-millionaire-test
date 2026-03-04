@@ -1,4 +1,8 @@
-import type { GameConfig, Question, QuestionsConfig } from "@/libs/types/game";
+import type {
+  GameConfig,
+  Question,
+  QuestionsConfig,
+} from "@/shared/types/game";
 import {
   buildQuestionsByRange,
   getQuestionForQuizLevel,
@@ -122,9 +126,7 @@ describe("getQuestionForQuizLevel", () => {
   it("throws when no available questions remain", () => {
     const usedQuestionIds = new Set<number>([1, 2, 3]);
 
-    expect(() =>
-      getQuestionForQuizLevel(QUESTIONS, usedQuestionIds),
-    ).toThrow();
+    expect(() => getQuestionForQuizLevel(QUESTIONS, usedQuestionIds)).toThrow();
   });
 });
 

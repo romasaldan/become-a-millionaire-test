@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import type { GameConfig, QuestionsConfig } from "@/libs/types/game";
+import type { GameConfig, QuestionsConfig } from "@/shared/types/game";
 import { getQuestionForQuizLevel, prepareGameData } from "./helpers";
 import gameConfig from "../../configs/game-config.json";
 import questionsConfig from "../../configs/questions.json";

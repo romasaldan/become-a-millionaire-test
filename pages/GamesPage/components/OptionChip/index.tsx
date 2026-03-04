@@ -5,7 +5,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import { Hexagon } from "./Hexagon";
 import styles from "./index.module.css";
-import { QuestionOption } from "@/libs/types/game";
+import { QuestionOption } from "@/shared/types/game";
 import { getOptionState } from "../../utils/getOptionState";
 
 export type OptionChipProps = {

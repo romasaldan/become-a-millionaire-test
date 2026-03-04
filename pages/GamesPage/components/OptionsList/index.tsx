@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "react";
 
 import { OptionChip } from "../OptionChip";
 import styles from "./index.module.css";
-import { QuestionOption } from "@/libs/types/game";
+import { QuestionOption } from "@/shared/types/game";
 
 export type OptionsListProps = {
   options: QuestionOption[];
