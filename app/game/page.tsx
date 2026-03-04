@@ -1,4 +1,4 @@
-import GamesPage from "../../pages/GamesPage";
+import GamesPage from "../../views/GamesPage";
 import { getGameData } from "./game-data";
 
 export default async function GameRoutePage() {
