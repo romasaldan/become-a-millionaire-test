@@ -5,27 +5,32 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import { Hexagon } from "./Hexagon";
 import styles from "./index.module.css";
-
-export type OptionState = "inactive" | "selected" | "correct" | "wrong";
+import { QuestionOption } from "@/libs/types/game";
+import { getOptionState } from "../../utils/getOptionState";
 
 export type OptionChipProps = {
   label: ReactNode;
   children: ReactNode;
-  state?: OptionState;
   className?: string;
+  isAnswered?: boolean;
+  isSelected?: boolean;
+  option: QuestionOption;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">;
 
 export function OptionChip(props: OptionChipProps) {
   const {
     label,
     children,
-    state = "inactive",
     className,
+    isAnswered,
+    isSelected,
+    option,
     ...buttonProps
   } = props;
 
+  const optionsState = getOptionState(isAnswered, isSelected, option.isCorrect);
   const stateClass =
-    styles[`option-${state}` as keyof typeof styles] ??
+    styles[`option-${optionsState}` as keyof typeof styles] ??
     styles["option-inactive"];
 
   return (

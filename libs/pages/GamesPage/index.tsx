@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { GameStateLadder } from "./components/GameStateLadder";
 import { OptionsList } from "./components/OptionsList";
 import { ToggleButton } from "../../components/ToggleButton";
 import { useToggle } from "../../hooks/useToggle";
 import type { Question } from "@/libs/types/game";
 import styles from "./index.module.css";
+import { useGameEngine } from "./useGameEngine";
+import classNames from "classnames";
 
 type GamesPageProps = {
   rewards: number[];
@@ -16,12 +17,18 @@ type GamesPageProps = {
 export default function GamesPage(props: GamesPageProps) {
   const { rewards, questions } = props;
   const { isOpen: isLadderOpen, toggle: toggleLadder } = useToggle(false);
-  const [currentQuestionIndex] = useState(0);
-  const currentQuestion = questions[currentQuestionIndex];
+  const {
+    currentQuestion,
+    correctOptionsAmount,
+    questionState,
+    selectedOptions,
+    onOptionClick,
+    currentQuestionIndex,
+  } = useGameEngine(questions);
 
   return (
     <div className={styles.page}>
-      <main className={`${styles.main} ${styles.gameLayout}`}>
+      <main className={classNames(styles.main, styles.gameLayout)}>
         <div className={styles.mobileToggle}>
           <ToggleButton
             isOpen={isLadderOpen}
@@ -39,8 +46,18 @@ export default function GamesPage(props: GamesPageProps) {
               {currentQuestion?.text ??
                 "Questions are not available right now."}
             </p>
+            {correctOptionsAmount && correctOptionsAmount > 1 && (
+              <p className={styles.selectionHint}>
+                Select {correctOptionsAmount} answers
+              </p>
+            )}
             <div className={styles.optionsWrapper}>
-              <OptionsList options={currentQuestion?.options} />
+              <OptionsList
+                options={currentQuestion?.options}
+                onOptionClick={onOptionClick}
+                selectedOptions={selectedOptions}
+                isAnswered={questionState !== "inProgress"}
+              />
             </div>
           </section>
         </div>

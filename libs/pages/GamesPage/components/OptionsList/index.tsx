@@ -3,24 +3,28 @@
 import classNames from "classnames";
 import type { HTMLAttributes } from "react";
 
-import { OptionChip, type OptionState } from "../OptionChip";
+import { OptionChip } from "../OptionChip";
 import styles from "./index.module.css";
-
-export type OptionListItem = {
-  id: string;
-  text: string;
-  state?: OptionState;
-  disabled?: boolean;
-};
+import { QuestionOption } from "@/libs/types/game";
 
 export type OptionsListProps = {
-  options: OptionListItem[];
-  onOptionClick?: (id: string) => void;
+  options: QuestionOption[];
+  onOptionClick?: (index: number) => void;
   className?: string;
+  selectedOptions: number[];
+  isAnswered: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export function OptionsList(props: OptionsListProps) {
-  const { options, onOptionClick, className, ...restProps } = props;
+  const {
+    options,
+    onOptionClick,
+    className,
+    selectedOptions,
+    isAnswered,
+    ...restProps
+  } = props;
+  const isSelected = (index: number) => selectedOptions.includes(index);
 
   return (
     <div
@@ -28,15 +32,14 @@ export function OptionsList(props: OptionsListProps) {
       {...restProps}
       aria-label={props["aria-label"] ?? "Answer options"}
     >
-      {options.map((option) => (
+      {options.map((option, index) => (
         <div key={option.id} className={styles.optionWrapper}>
           <OptionChip
             label={option.id}
-            state={option.state}
-            disabled={option.disabled}
-            onClick={
-              onOptionClick ? () => onOptionClick(option.id) : undefined
-            }
+            isAnswered={isAnswered}
+            isSelected={isSelected(index)}
+            onClick={() => onOptionClick?.(index)}
+            option={option}
           >
             {option.text}
           </OptionChip>
@@ -45,4 +48,3 @@ export function OptionsList(props: OptionsListProps) {
     </div>
   );
 }
-
