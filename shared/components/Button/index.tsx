@@ -27,7 +27,7 @@ export function Button(props: ButtonProps) {
   }
 
   return (
-    <button className={classes} {...props}>
+    <button {...props} className={classes}>
       {children}
     </button>
   );

@@ -10,7 +10,11 @@ export function StartGameButton() {
 
   return (
     <div className={styles.cta}>
-      <Link href="/game" className={styles.ctaLink} onClick={() => setGameInProgress(true)}>
+      <Link
+        href="/game"
+        className={styles.ctaLink}
+        onClick={() => setGameInProgress(true)}
+      >
         <Button>Start</Button>
       </Link>
     </div>

@@ -3,7 +3,9 @@
 import { GameStateLadder } from "./components/GameStateLadder";
 import { OptionsList } from "./components/OptionsList";
 import { ToggleButton } from "../../shared/components/ToggleButton";
+import { ConfirmModal } from "../../shared/components/ConfirmModal";
 import { useToggle } from "../../shared/hooks/useToggle";
+import { useRefreshGuard } from "../../shared/hooks/useRefreshGuard";
 import type { Question } from "@/shared/types/game";
 import styles from "./index.module.css";
 import { useGameEngine } from "./useGameEngine";
@@ -25,9 +27,21 @@ export default function GamesPage(props: GamesPageProps) {
     onOptionClick,
     currentQuestionIndex,
   } = useGameEngine(questions, rewards);
+  const { showRefreshModal, confirmRefresh, cancelRefresh } =
+    useRefreshGuard();
 
   return (
     <div className={styles.page}>
+      {showRefreshModal && (
+        <ConfirmModal
+          title="Leave the game?"
+          description="Your progress will be lost if you refresh the page."
+          confirmLabel="Refresh"
+          cancelLabel="Stay"
+          onConfirm={confirmRefresh}
+          onCancel={cancelRefresh}
+        />
+      )}
       <main className={classNames(styles.main, styles.gameLayout)}>
         <div className={styles.mobileToggle}>
           <ToggleButton
