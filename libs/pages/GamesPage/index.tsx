@@ -4,29 +4,18 @@ import { useState } from "react";
 import { GameStateLadder } from "./components/GameStateLadder";
 import { OptionsList } from "./components/OptionsList";
 import { ToggleButton } from "../../components/ToggleButton";
+import { useToggle } from "../../hooks/useToggle";
+import type { Question } from "@/libs/types/game";
 import styles from "./index.module.css";
-
-type GameQuestionOption = {
-  id: string;
-  text: string;
-  isCorrect: boolean;
-};
-
-type GameQuestion = {
-  id: number;
-  text: string;
-  complexity: number;
-  options: GameQuestionOption[];
-};
 
 type GamesPageProps = {
   rewards: number[];
-  questions: GameQuestion[];
+  questions: Question[];
 };
 
 export default function GamesPage(props: GamesPageProps) {
   const { rewards, questions } = props;
-  const [isLadderOpen, setIsLadderOpen] = useState(false);
+  const { isOpen: isLadderOpen, toggle: toggleLadder } = useToggle(false);
   const [currentQuestionIndex] = useState(7);
   const currentQuestion = questions[currentQuestionIndex] ?? questions[0];
   const currentOptions =
@@ -41,7 +30,7 @@ export default function GamesPage(props: GamesPageProps) {
         <div className={styles.mobileToggle}>
           <ToggleButton
             isOpen={isLadderOpen}
-            onToggle={() => setIsLadderOpen((open) => !open)}
+            onToggle={toggleLadder}
             ariaLabelOpen="Hide question progress"
             ariaLabelClosed="Show question progress"
           />
