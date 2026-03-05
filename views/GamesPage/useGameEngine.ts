@@ -66,7 +66,6 @@ export function useGameEngine(questions: Question[], rewards: number[]) {
 
   return {
     currentQuestion,
-    correctOptionsAmount,
     questionState,
     selectedOptions,
     onOptionClick,

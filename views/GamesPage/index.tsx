@@ -21,14 +21,12 @@ export default function GamesPage(props: GamesPageProps) {
   const { isOpen: isLadderOpen, toggle: toggleLadder } = useToggle(false);
   const {
     currentQuestion,
-    correctOptionsAmount,
     questionState,
     selectedOptions,
     onOptionClick,
     currentQuestionIndex,
   } = useGameEngine(questions, rewards);
-  const { showRefreshModal, confirmRefresh, cancelRefresh } =
-    useRefreshGuard();
+  const { showRefreshModal, confirmRefresh, cancelRefresh } = useRefreshGuard();
 
   return (
     <div className={styles.page}>
@@ -60,11 +58,6 @@ export default function GamesPage(props: GamesPageProps) {
               {currentQuestion?.text ??
                 "Questions are not available right now."}
             </p>
-            {correctOptionsAmount && correctOptionsAmount > 1 && (
-              <p className={styles.selectionHint}>
-                Select {correctOptionsAmount} answers
-              </p>
-            )}
             <div className={styles.optionsWrapper}>
               <OptionsList
                 options={currentQuestion?.options}
