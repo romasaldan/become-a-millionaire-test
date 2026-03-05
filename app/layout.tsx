@@ -23,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <StoreProvider>{children}</StoreProvider>
+        <div className="app-root">
+          <StoreProvider>{children}</StoreProvider>
+        </div>
       </body>
     </html>
   );
