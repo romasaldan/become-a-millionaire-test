@@ -11,7 +11,7 @@ The implementation is built with **Next.js (App Router)**, **TypeScript**, **CSS
 
 The app is deployed on Vercel:
 
-- **Production URL**: `<ADD_VERCEL_URL_HERE>`
+- **Production URL**: `https://become-a-millionaire-test.vercel.app/`
 
 Replace the placeholder above with your actual deployment link.
 
