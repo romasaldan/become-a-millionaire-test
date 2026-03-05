@@ -11,10 +11,11 @@ export function useGameEngine(questions: Question[], rewards: number[]) {
     useState<QuestionState>("inProgress");
   const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
   const currentQuestion = questions[currentQuestionIndex];
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
   const correctOptionsAmount = currentQuestion?.options.filter(
     (option) => option.isCorrect,
   ).length;
-  const { setUserReward, setGameInProgress } = useAppStore();
+  const { setUserReward, gameInProgress } = useAppStore();
   const router = useRouter();
 
   const onOptionClick = (optionId: number) => {
@@ -39,8 +40,6 @@ export function useGameEngine(questions: Question[], rewards: number[]) {
       if (currentQuestionIndex > 0) {
         setUserReward(rewards[currentQuestionIndex - 1]);
       }
-
-      setGameInProgress(false);
     }
 
     setSelectedOptions(newSelectedOptions);
@@ -56,13 +55,23 @@ export function useGameEngine(questions: Question[], rewards: number[]) {
         setCurrentQuestionIndex((prev) => prev + 1);
         setQuestionState("inProgress");
         setSelectedOptions([]);
+
+        if (isLastQuestion) {
+          router.replace("/summary");
+        }
       } else {
-        router.push("/summary");
+        router.replace("/summary");
       }
     }, 1000);
 
     return () => clearTimeout(timeout);
-  }, [questionState, router]);
+  }, [questionState, router, isLastQuestion]);
+
+  useEffect(() => {
+    if (!gameInProgress) {
+      router.push("/");
+    }
+  }, [router, gameInProgress]);
 
   return {
     currentQuestion,

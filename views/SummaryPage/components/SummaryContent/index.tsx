@@ -4,15 +4,22 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/shared/components/Button";
 import styles from "./index.module.css";
 import { useAppStore } from "@/shared/hooks/useAppStore";
+import { useEffect } from "react";
 
 export function SummaryContent() {
   const router = useRouter();
-  const { userReward, setGameInProgress } = useAppStore();
+  const { userReward, gameInProgress, setUserReward } = useAppStore();
 
   function handleTryAgain() {
-    setGameInProgress(true);
     router.push("/game");
+    setUserReward(0);
   }
+
+  useEffect(() => {
+    if (!gameInProgress) {
+      router.push("/");
+    }
+  }, [router, gameInProgress]);
 
   return (
     <div className={styles.content}>
